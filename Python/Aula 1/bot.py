@@ -1,0 +1,35 @@
+import pyautogui as pa
+import pandas as pd
+import time
+
+planilha = pd.read_csv("produtos.csv")
+pa.PAUSE = 1
+pa.press("win")
+pa.write("edge")
+pa.press("enter")
+pa.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
+pa.press("enter")
+time.sleep(3)
+pa.click(x=828, y=364)
+pa.write("exemplo@email.com")
+pa.press("tab")
+pa.write("senha123")
+pa.press("enter")
+print(planilha)
+for i in planilha.index:
+    pa.click(x=732, y=252)
+    pa.write(str(planilha.loc[i, "codigo"]))
+    pa.press("tab")
+    pa.write(str(planilha.loc[i, "marca"]))
+    pa.press("tab")
+    pa.write(str(planilha.loc[i, "tipo"]))
+    pa.press("tab")
+    pa.write(str(planilha.loc[i, "categoria"]))
+    pa.press("tab")
+    pa.write(str(planilha.loc[i, "preco_unitario"]))
+    pa.press("tab")
+    pa.write(str(planilha.loc[i, "custo"]))
+    pa.press("tab")
+    pa.write(str(planilha.loc[i, "obs"]))
+    pa.press("tab")
+    pa.press("enter")
